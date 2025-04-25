@@ -35,7 +35,7 @@ def passport_page_2(request):
     if is_headless:
         chrome_options.add_argument("--headless=new")
     logger.info(f'Start app on url {url}, headless is {is_headless}')
-    driver = webdriver.Chrome()
+    driver = webdriver.Chrome(options=chrome_options)
     driver.get(url)
     passport_page = PassportPage2(driver)
     yield passport_page
